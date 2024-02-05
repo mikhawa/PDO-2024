@@ -5,7 +5,8 @@
 
 // chargement des dépendances
 require_once "../config.php"; // constantes
-require_once "../model/CountriesModel.php"; // fonctions
+require_once "../model/CountriesModel.php"; // fonctions countries
+require_once "../model/PaginationModel.php"; // fonctions de pagination
 
 // tentative de connexion
 try{
@@ -22,10 +23,18 @@ try{
     die("Erreur : ".$e->getMessage());
 }
 
-// requête sur la DB (se trouve dans le dossier model car gestion de données)
+// si on a une page, on la récupère, sinon on prend la première
+if(isset($_GET[MY_PAGINATION_GET])) $page = (int) $_GET[MY_PAGINATION_GET];
+else $page = 1;
 
-$allCountries = getAllCountries($db);
+// récupération du nombre de pays
+$nbPays = getNumberCountries($db);
 
+// création de la pagination si plus d'une page
+$pagination = PaginationModel('./', MY_PAGINATION_GET, $nbPays, $page, MY_PAGINATION_BY_PAGE);
+
+// récupération des pays
+$allCountries = getCountriesByPage($db, $page, MY_PAGINATION_BY_PAGE);
 
 /* récupération du template d'affichage, 
 on utilisera la boucle while avec un fetch directement
