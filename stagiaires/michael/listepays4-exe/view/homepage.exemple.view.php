@@ -6,15 +6,10 @@
     <title>Listepays</title>
 </head>
 <body>
-    <h1>Listepays</h1>
+    <h1>Listepays vue exemple</h1>
     <h2>Liste de tous les pays du monde</h2>
     <h3>Nombre de pays : <?=$nbPays?> - <a href="exemple.php">exemple à mettre en place</a> | <a href="./">Accueil (CF)</a></h3>
-    <p><pre><code>Utilisation du foreach pour afficher le tableau des pays :
-        
-        foreach($allCountries as $countries):
-            echo $countries['nom']; 
-        endforeach;
-    </code></pre></p>
+    
 
     <?php //var_dump($allCountries)?>
 
@@ -22,12 +17,15 @@
     <?php
     if(isset($pagination)) echo "$pagination<hr>"; 
     ?>
+    
     <p>
     <?php
-    foreach($allCountries as $countries):
+    $i=($page-1)*MY_PAGINATION_BY_PAGE +1;
+    foreach($countriesByPage as $countries):
     ?>
-    <p><?=$countries['nom'] ?></p>
+    <p><?="Ligne ".$i." ) ".$countries['nom'] ?></p>
     <?php
+    $i++;
     endforeach;
     ?>
     </p>

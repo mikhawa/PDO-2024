@@ -51,3 +51,4 @@ function PaginationModel(string $url, // url (pour garder les autres variables g
 
     return $sortie;
 }
+ 
