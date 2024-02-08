@@ -17,6 +17,7 @@
     </code></pre>
     <div>
         <?php
+        echo gettype($query);
         /* Tant qu'on a des pays à lister, 
         on peut le faire avec while et nos résultats
         ligne par ligne avec fetch et PDO::FETCH_ASSOC

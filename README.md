@@ -75,7 +75,7 @@ Ouvrez PHPMyAdmin, sélectionnez `MariaDB` et importez la base de données `list
 
 - Création du projet sur Github sur votre compte
 - Si c'est une copie d'un projet existant :  création d'un **fork¨** sur votre compte
-- **Clonage** de projet en local
+- **Clonage** de **votre** projet ou fork en local
 - On se met dans le projet (cd NomDuProjet) : origin/main existe déjà
 - Création de l'**upstream** pour renvoyer le projet via des **pull request** :
 `git remote add upstream SSH_KEY`
@@ -87,7 +87,7 @@ Ouvrez PHPMyAdmin, sélectionnez `MariaDB` et importez la base de données `list
     - M : model (Gestion des données)
     - V : view (Gestion des templates)
     - C : controller (Routage et lien entre les données et les templates)
-- Création du dossier public, qui contiendra index.php (Contrôleur Frontal), lres fichiers CSS, JS (front), images etc...
+- Création du dossier `public`, qui contiendra `index.php` (Contrôleur Frontal), les fichiers CSS, JS (front), images etc...
 - Création d'un hôte virtuel vers le dossier `public` (qui afficher donc `index.php`)
 - Dans index.php :
     - chargemement des dépendances (dont la configuration, les **fonctions** utilisées (`model`))
