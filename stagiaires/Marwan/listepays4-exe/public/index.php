@@ -27,11 +27,17 @@ try{
 $nbPays = getNumberCountries($db);
 
 // $pagination = PaginationModel("./",);
+if(isset($_GET[MY_PAGINATION_GET]) && ctype_digit($_GET[MY_PAGINATION_GET])){
+    $page = (int) $_GET[MY_PAGINATION_GET];
+}else{
+    $page = 1;
+}
 
+$pagination = PaginationModel("./",MY_PAGINATION_GET,$nbPays,$page,MY_PAGINATION_BY_PAGE);
 
 // requête sur la DB (se trouve dans le dossier model car gestion de données)
 // A remplacer par getCountriesByPage
-$allCountries = getAllCountries($db); // remplacement par getCountriesByPage
+$countriesByPage = getCountriesByPage($db,$page,MY_PAGINATION_BY_PAGE);// remplacement par getCountriesByPage
 
 
 /* récupération du template d'affichage, 
