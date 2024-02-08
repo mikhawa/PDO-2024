@@ -28,7 +28,7 @@ function PaginationModel(string $url, // url (pour garder les autres variables g
         // pas de liens
         $sortie.= "<< <";
     }elseif ($currentPage===2) {
-        // liens vers l'accueil
+        // liens vers l'accueil sans duplicate content (./ = ./?pg=1)
         $sortie.= "<a href='$url'><<</a> <a href='$url'><</a>";
     }else{
         // liens vers l'accueil et la page précédente
@@ -40,7 +40,7 @@ function PaginationModel(string $url, // url (pour garder les autres variables g
     {
         // si on est sur la page en cours, on affiche un texte
         if($i===$currentPage) $sortie.= " $i ";
-        // sinon si on affiche la page 1
+        // sinon si on affiche la page 1, on évite le duplicate content
         else if($i===1) $sortie.= " <a href='$url'>$i</a> ";
         // sinon on affiche un lien
         else $sortie.= " <a href='$url?&$getName=$i'>$i</a> ";
@@ -51,4 +51,4 @@ function PaginationModel(string $url, // url (pour garder les autres variables g
 
     return $sortie;
 }
-
+ 
