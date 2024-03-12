@@ -14,12 +14,14 @@ Requêtes préparées :
 // Premier bindParam avec marqueurs ?
 if(isset($_POST['num1'],$_POST['num2'])):
 
+
 // Préparation de notre requête avec prepare et les marqueurs ?
 $request = $PDOConnect->prepare("SELECT `nom`, `population` FROM `countries` WHERE `population` BETWEEN ? AND ? ORDER BY `population` DESC ;");
 
-// utilisation de bindValue(), version plus longue mais plus stricte que le tableau dans l'execute(). 1 représente le premier ? dans l'ordre de lecture (de haut en bas gauche à droite)
+// utilisation de bindValue(), version plus longue, mais plus stricte que le tableau dans l'execute(). 1 représente le premier ? dans l'ordre de lecture (de haut en bas gauche à droite)
 $request->bindValue(1,$_POST['num1'],PDO::PARAM_INT);
 $request->bindValue(2,$_POST['num2'],PDO::PARAM_INT);
+
 
 try{
     $request->execute();
