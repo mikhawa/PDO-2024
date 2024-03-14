@@ -11,13 +11,16 @@ try {
 
 
     // une seule erreur, retour à l'état initial
-    $db->exec("INSERT INTO theuser (theuserlogin,theusername) VALUES ('lulu6','lulu')");
+    $db->exec("INSERT INTO theuser (theuserlogin,theusername) VALUES ('lulu9','lulu')");
+    $var = $db->lastInsertId();
 
-    $db->exec("INSERT INTO theuser (theuserlogin,theusername) VALUES ('lala6','lala')");
+    $db->exec("INSERT INTO theuser (theuserlogin,theusername) VALUES ('lala10','$var')");
 
     $db->exec("UPDATE theuser SET theusername='lala6' WHERE theuserlogin='lala'");
 
     $db->exec("UPDATE theuser SET theuserlogin='lala' WHERE theuserlogin='lala6'");
+
+    
 
     // toutes les actions sont exécutées en même temps (ordre de lecture) et validées ou invalidées en 1 trajet
     $db->commit();
