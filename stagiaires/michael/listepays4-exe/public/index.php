@@ -1,6 +1,6 @@
 <?php
 /*
-** Contrôleur frontal 
+** Contrôleur frontal  
 */
 
 // chargement des dépendances

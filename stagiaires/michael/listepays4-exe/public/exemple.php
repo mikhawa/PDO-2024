@@ -1,6 +1,6 @@
 <?php
 /*
-** Contrôleur frontal 
+** Contrôleur frontal  
 */
 
 // chargement des dépendances
@@ -27,15 +27,15 @@ try{
 pour la pagination et pour le getCountriesByPage */
 $nbPays = getNumberCountries($db);
 
-/* si il existe une variable $_GET nommée comme MY_PAGINATION_GET et qu'elle
-est un string contenant que les symboles numériques 0123456789 [0-9]* 
+/* si il existe et n'est pas vide une variable $_GET nommée comme MY_PAGINATION_GET et qu'elle
+est un string contenant que des symboles numériques 0123456789 [0-9]* 
 */
-if(isset($_GET[MY_PAGINATION_GET]) && ctype_digit($_GET[MY_PAGINATION_GET])){
+if(!empty($_GET[MY_PAGINATION_GET]) && ctype_digit($_GET[MY_PAGINATION_GET])){
     $page = (int) $_GET[MY_PAGINATION_GET];
 }else{
     $page = 1;
 }
-
+ //var_dump($_GET);
 
 $pagination = PaginationModel("exemple.php",MY_PAGINATION_GET,$nbPays,$page,MY_PAGINATION_BY_PAGE);
 

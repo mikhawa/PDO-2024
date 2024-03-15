@@ -19,7 +19,7 @@ function getNumberCountries(PDO $connect): int
 {
    /* $query = $connect->query("SELECT COUNT('id') AS nb FROM countries");
     $result = $query->fetch();
-    return $result['nb'];*/
+    return $result['nb'];*/ 
 
     return $connect->query("SELECT COUNT('id') AS nb FROM countries")->fetch()['nb'];
 }
