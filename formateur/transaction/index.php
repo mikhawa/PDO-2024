@@ -11,12 +11,12 @@ try {
 
 
     // une seule erreur, retour à l'état initial
-    $db->exec("INSERT INTO theuser (theuserlogin,theusername) VALUES ('lulu9','lulu')");
+    $db->exec("INSERT INTO theuser (theuserlogin,theusername) VALUES ('lulu92','lulu')");
     $var = $db->lastInsertId();
 
-    $db->exec("INSERT INTO theuser (theuserlogin,theusername) VALUES ('lala10','$var')");
+    $db->exec("INSERT INTO theuser (theuserlogin,theusername) VALUES ('lala11','$var')");
 
-    $db->exec("UPDATE theuser SET theusername='lala6' WHERE theuserlogin='lala'");
+    $db->exec("UPDATE theuser SET theusername='lala91' WHERE theuserlogin='lala'");
 
     $db->exec("UPDATE theuser SET theuserlogin='lala' WHERE theuserlogin='lala6'");
 
